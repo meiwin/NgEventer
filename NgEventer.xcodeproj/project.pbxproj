@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCB2FD621BC9768400FC35FB /* NgEventer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCB2FD611BC9768400FC35FB /* NgEventer.h */; };
+		DCB2FD641BC9768400FC35FB /* NgEventer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD631BC9768400FC35FB /* NgEventer.m */; };
+		DCB2FD721BCA508D00FC35FB /* NgEventerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD711BCA508D00FC35FB /* NgEventerTests.m */; };
+		DCB2FD741BCA508D00FC35FB /* libNgEventer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB2FD5E1BC9768400FC35FB /* libNgEventer.a */; settings = {ASSET_TAGS = (); }; };
+		DCB2FD7C1BCA5A0D00FC35FB /* NgEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD7B1BCA5A0D00FC35FB /* NgEvent.m */; settings = {ASSET_TAGS = (); }; };
+		DCB2FD7F1BCA66F400FC35FB /* NgEventPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD7E1BCA66F400FC35FB /* NgEventPromise.m */; settings = {ASSET_TAGS = (); }; };
+		DCB2FD841BCA9C3800FC35FB /* NSObject+NgEventer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD831BCA9C3800FC35FB /* NSObject+NgEventer.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCB2FD751BCA508D00FC35FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCB2FD561BC9768400FC35FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCB2FD5D1BC9768400FC35FB;
+			remoteInfo = NgEventer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DCB2FD5C1BC9768400FC35FB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				DCB2FD621BC9768400FC35FB /* NgEventer.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DCB2FD5E1BC9768400FC35FB /* libNgEventer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNgEventer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB2FD611BC9768400FC35FB /* NgEventer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NgEventer.h; sourceTree = "<group>"; };
+		DCB2FD631BC9768400FC35FB /* NgEventer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NgEventer.m; sourceTree = "<group>"; };
+		DCB2FD6F1BCA508D00FC35FB /* NgEventerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NgEventerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB2FD711BCA508D00FC35FB /* NgEventerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NgEventerTests.m; sourceTree = "<group>"; };
+		DCB2FD731BCA508D00FC35FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCB2FD7A1BCA5A0D00FC35FB /* NgEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgEvent.h; sourceTree = "<group>"; };
+		DCB2FD7B1BCA5A0D00FC35FB /* NgEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgEvent.m; sourceTree = "<group>"; };
+		DCB2FD7D1BCA66F400FC35FB /* NgEventPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgEventPromise.h; sourceTree = "<group>"; };
+		DCB2FD7E1BCA66F400FC35FB /* NgEventPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgEventPromise.m; sourceTree = "<group>"; };
+		DCB2FD801BCA6B9C00FC35FB /* NgEventerProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NgEventerProtocols.h; sourceTree = "<group>"; };
+		DCB2FD811BCA8DD600FC35FB /* NgEventSetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NgEventSetter.h; sourceTree = "<group>"; };
+		DCB2FD821BCA9C3800FC35FB /* NSObject+NgEventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NgEventer.h"; sourceTree = "<group>"; };
+		DCB2FD831BCA9C3800FC35FB /* NSObject+NgEventer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NgEventer.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCB2FD5B1BC9768400FC35FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCB2FD6C1BCA508D00FC35FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCB2FD741BCA508D00FC35FB /* libNgEventer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCB2FD551BC9768400FC35FB = {
+			isa = PBXGroup;
+			children = (
+				DCB2FD6A1BC976A500FC35FB /* Demo */,
+				DCB2FD601BC9768400FC35FB /* NgEventer */,
+				DCB2FD701BCA508D00FC35FB /* NgEventerTests */,
+				DCB2FD5F1BC9768400FC35FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCB2FD5F1BC9768400FC35FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCB2FD5E1BC9768400FC35FB /* libNgEventer.a */,
+				DCB2FD6F1BCA508D00FC35FB /* NgEventerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCB2FD601BC9768400FC35FB /* NgEventer */ = {
+			isa = PBXGroup;
+			children = (
+				DCB2FD801BCA6B9C00FC35FB /* NgEventerProtocols.h */,
+				DCB2FD811BCA8DD600FC35FB /* NgEventSetter.h */,
+				DCB2FD611BC9768400FC35FB /* NgEventer.h */,
+				DCB2FD631BC9768400FC35FB /* NgEventer.m */,
+				DCB2FD7A1BCA5A0D00FC35FB /* NgEvent.h */,
+				DCB2FD7B1BCA5A0D00FC35FB /* NgEvent.m */,
+				DCB2FD7D1BCA66F400FC35FB /* NgEventPromise.h */,
+				DCB2FD7E1BCA66F400FC35FB /* NgEventPromise.m */,
+				DCB2FD821BCA9C3800FC35FB /* NSObject+NgEventer.h */,
+				DCB2FD831BCA9C3800FC35FB /* NSObject+NgEventer.m */,
+			);
+			path = NgEventer;
+			sourceTree = "<group>";
+		};
+		DCB2FD6A1BC976A500FC35FB /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		DCB2FD701BCA508D00FC35FB /* NgEventerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCB2FD711BCA508D00FC35FB /* NgEventerTests.m */,
+				DCB2FD731BCA508D00FC35FB /* Info.plist */,
+			);
+			path = NgEventerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCB2FD5D1BC9768400FC35FB /* NgEventer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCB2FD671BC9768400FC35FB /* Build configuration list for PBXNativeTarget "NgEventer" */;
+			buildPhases = (
+				DCB2FD5A1BC9768400FC35FB /* Sources */,
+				DCB2FD5B1BC9768400FC35FB /* Frameworks */,
+				DCB2FD5C1BC9768400FC35FB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NgEventer;
+			productName = NgEventer;
+			productReference = DCB2FD5E1BC9768400FC35FB /* libNgEventer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DCB2FD6E1BCA508D00FC35FB /* NgEventerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCB2FD771BCA508D00FC35FB /* Build configuration list for PBXNativeTarget "NgEventerTests" */;
+			buildPhases = (
+				DCB2FD6B1BCA508D00FC35FB /* Sources */,
+				DCB2FD6C1BCA508D00FC35FB /* Frameworks */,
+				DCB2FD6D1BCA508D00FC35FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCB2FD761BCA508D00FC35FB /* PBXTargetDependency */,
+			);
+			name = NgEventerTests;
+			productName = NgEventerTests;
+			productReference = DCB2FD6F1BCA508D00FC35FB /* NgEventerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCB2FD561BC9768400FC35FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = blockthirty;
+				TargetAttributes = {
+					DCB2FD5D1BC9768400FC35FB = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					DCB2FD6E1BCA508D00FC35FB = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = DCB2FD591BC9768400FC35FB /* Build configuration list for PBXProject "NgEventer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DCB2FD551BC9768400FC35FB;
+			productRefGroup = DCB2FD5F1BC9768400FC35FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCB2FD5D1BC9768400FC35FB /* NgEventer */,
+				DCB2FD6E1BCA508D00FC35FB /* NgEventerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCB2FD6D1BCA508D00FC35FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCB2FD5A1BC9768400FC35FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCB2FD841BCA9C3800FC35FB /* NSObject+NgEventer.m in Sources */,
+				DCB2FD7F1BCA66F400FC35FB /* NgEventPromise.m in Sources */,
+				DCB2FD641BC9768400FC35FB /* NgEventer.m in Sources */,
+				DCB2FD7C1BCA5A0D00FC35FB /* NgEvent.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCB2FD6B1BCA508D00FC35FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCB2FD721BCA508D00FC35FB /* NgEventerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCB2FD761BCA508D00FC35FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCB2FD5D1BC9768400FC35FB /* NgEventer */;
+			targetProxy = DCB2FD751BCA508D00FC35FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DCB2FD651BC9768400FC35FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DCB2FD661BC9768400FC35FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCB2FD681BC9768400FC35FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DCB2FD691BC9768400FC35FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DCB2FD781BCA508D00FC35FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NgEventerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blockthirty.NgEventerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCB2FD791BCA508D00FC35FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NgEventerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blockthirty.NgEventerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCB2FD591BC9768400FC35FB /* Build configuration list for PBXProject "NgEventer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCB2FD651BC9768400FC35FB /* Debug */,
+				DCB2FD661BC9768400FC35FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCB2FD671BC9768400FC35FB /* Build configuration list for PBXNativeTarget "NgEventer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCB2FD681BC9768400FC35FB /* Debug */,
+				DCB2FD691BC9768400FC35FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DCB2FD771BCA508D00FC35FB /* Build configuration list for PBXNativeTarget "NgEventerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCB2FD781BCA508D00FC35FB /* Debug */,
+				DCB2FD791BCA508D00FC35FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCB2FD561BC9768400FC35FB /* Project object */;
+}
