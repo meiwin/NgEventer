@@ -12,7 +12,9 @@
 
 #pragma mark -
 @interface NgEventer : NSObject
-<NgEventerEventRegistry
+< NgEventerEventRegistry
 , NgEventerEventDelivery
-, NgEventerPerformWithPromise>
+, NgEventerPerformWithPromise >
+
+@property (nonatomic, strong) dispatch_queue_t  backgroundQueue;
 @end

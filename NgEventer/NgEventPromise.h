@@ -11,8 +11,8 @@
 
 @class NgEventer;
 @interface NgEventPromise : NSOperation
-<NgEventerEventPromise
-, NgEventerEventPromiseCallback>
+< NgEventerEventPromise
+, NgEventerEventPromiseCallback >
 
 @property (nonatomic, strong, readonly) NgEventer     * eventer;
 - (instancetype)init __unavailable;

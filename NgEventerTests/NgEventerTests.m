@@ -45,6 +45,23 @@
     self.test1Expectation = nil;
   }];
 }
+- (void)testObserverInBackground {
+  
+  NgEventer * eventer = [[NgEventer alloc] init];
+  
+  XCTestExpectation * e = [self expectationWithDescription:@"Event /test1"];
+  self.test1Expectation = e;
+  
+  [[eventer eventNamed:@"/test1"] addObserverInBackground:self];
+  
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    [eventer send:@"/test1" data:nil error:nil];
+  });
+  
+  [self waitForExpectationsWithTimeout:.5f handler:^(NSError * _Nullable error) {
+    self.test1Expectation = nil;
+  }];
+}
 - (void)testObserverWithSelector {
 
   NgEventer * eventer = [[NgEventer alloc] init];
@@ -68,6 +85,45 @@
     self.test2Expectation = nil;
   }];
 }
+- (void)testObserverWithSelectorInBackground {
+  
+  NgEventer * eventer = [[NgEventer alloc] init];
+  
+  XCTestExpectation * e1 = [self expectationWithDescription:@"Event /test1"];
+  XCTestExpectation * e2 = [self expectationWithDescription:@"Event /test2"];
+  
+  self.test1Expectation = e1;
+  self.test2Expectation = e2;
+  
+  [[eventer eventNamed:@"/test1"] addObserverInBackground:self action:@selector(test1Event:)];
+  [[eventer eventNamed:@"/test2"] addObserverInBackground:self action:@selector(eventer:test2Event:)];
+  
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    [eventer send:@"/test1" data:nil error:nil];
+    [eventer send:@"/test2" data:nil error:nil];
+  });
+  
+  [self waitForExpectationsWithTimeout:.5f handler:^(NSError * _Nullable error) {
+    self.test1Expectation = nil;
+    self.test2Expectation = nil;
+  }];
+}
+- (void)testRemoveObserver {
+  
+  NgEventer * eventer = [[NgEventer alloc] init];
+  
+  dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+  
+  [[eventer eventNamed:@"/test1"] addObserver:self];
+  [[eventer eventNamed:@"/test1"] addObserver:self action:@selector(shouldNotTest1:)];
+  [[eventer eventNamed:@"/test1"] removeObserver:self];
+  
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    [eventer send:@"/test1" data:nil error:nil];
+  });
+
+  dispatch_semaphore_wait(sema, dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC));
+}
 - (void)testPromise {
 
   NgEventer * eventer = [[NgEventer alloc] init];
@@ -89,7 +145,27 @@
   
   [self waitForExpectationsWithTimeout:.5f handler:nil];
 }
-
+- (void)testPromiseInBackground {
+  
+  NgEventer * eventer = [[NgEventer alloc] init];
+  
+  XCTestExpectation * e1 = [self expectationWithDescription:@"/test1"];
+  self.test1Expectation = e1;
+  
+  [[eventer performWithPromise:^(id<NgEventerEventPromiseCallback> callback) {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+      [callback send:@"/test1" data:nil error:nil];
+    });
+    
+  }] handleInBackground:^(NSString * name, id data, NSError * error) {
+    
+    [self.test1Expectation fulfill];
+    
+  }];
+  
+  [self waitForExpectationsWithTimeout:.5f handler:nil];
+}
 - (void)testCancel {
   
   NgEventer * eventer = [[NgEventer alloc] init];
@@ -115,10 +191,14 @@
 #pragma mark Events
 - (void)eventer:(NgEventer *)eventer didFireEvent:(NgEvent *)event {
 
-  if ([event.name isEqual:@"/test1"]) {
-    [self.test1Expectation fulfill];
-  } else if ([event.name isEqual:@"/test2"]) {
-    [self.test2Expectation fulfill];
+  if (self.test1Expectation || self.test2Expectation) {
+    if ([event.name isEqual:@"/test1"]) {
+      [self.test1Expectation fulfill];
+    } else if ([event.name isEqual:@"/test2"]) {
+      [self.test2Expectation fulfill];
+    }
+  } else {
+    XCTAssertFalse(@"Should not be called as observer was removed.");
   }
 }
 - (void)test1Event:(NgEvent *)event {
@@ -127,5 +207,7 @@
 - (void)eventer:(NgEventer *)eventer test2Event:(NgEvent *)event {
   [self.test2Expectation fulfill];
 }
-
+- (void)shouldNotTest1:(NgEvent *)event {
+  XCTAssertFalse(@"Should not be called as observer was removed.");
+}
 @end

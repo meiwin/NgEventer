@@ -19,6 +19,7 @@
 - (void)addObserverInMainThread:(id)observer action:(SEL)action;
 - (void)addObserverInBackground:(id)observer;
 - (void)addObserverInBackground:(id)observer action:(SEL)action;
+- (void)removeObserver:(id)observer;
 @end
 
 #pragma mark -
