@@ -25,18 +25,16 @@ typedef NS_ENUM(int32_t, NgEventPromiseQueue) {
 @property (nonatomic, strong) NgEventer                           * eventer;
 @property (nonatomic, strong, readonly) NSMutableSet              * handlers;
 @property (nonatomic, strong, readonly) NSMutableSet              * nge_handlers;
-@property (nonatomic, strong) NgEventerPerformWithPromiseBlock    block;
 @end
 
 @implementation NgEventPromise
 
-- (instancetype)initWithEventer:(NgEventer *)eventer
-                          block:(NgEventerPerformWithPromiseBlock)block {
+- (instancetype)initWithEventer:(NgEventer *)eventer {
+  
   NSParameterAssert(eventer);
   self = [super init];
   if (self) {
     self.eventer = eventer;
-    self.block = block;
   }
   return self;
 }
@@ -70,10 +68,6 @@ typedef NS_ENUM(int32_t, NgEventPromiseQueue) {
 - (id<NgEventerEventPromise>)handle:(NgEventerEventPromiseHandlerBlock)handler queue:(NgEventPromiseQueue)queue {
 
   NSParameterAssert(handler);
-  NSAssert(![self isExecuting], @"Invalid state: executing.");
-  NSAssert(![self isCancelled], @"Invalid state: cancelled.");
-  NSAssert(![self isFinished], @"Invalid state: finished");
-  
   [[self handlers] addObject:@{
                                @"handler" : handler,
                                @"queue" : @(queue)
@@ -94,10 +88,6 @@ typedef NS_ENUM(int32_t, NgEventPromiseQueue) {
 }
 - (id<NgEventerEventPromise>)nge_handle:(NgEventerEventPromiseNgeHandlerBlock)handler queue:(NgEventPromiseQueue)queue {
   NSParameterAssert(handler);
-  NSAssert(![self isExecuting], @"Invalid state: executing.");
-  NSAssert(![self isCancelled], @"Invalid state: cancelled.");
-  NSAssert(![self isFinished], @"Invalid state: finished");
-
   [[self nge_handlers] addObject:@{
                                    @"handler" : handler,
                                    @"queue" : @(queue)
@@ -162,11 +152,21 @@ typedef NS_ENUM(int32_t, NgEventPromiseQueue) {
   [self.eventer send:event];
 }
 
-#pragma mark NSOperation
-- (void)main {
-  self.block(self);
-}
-- (BOOL)isConcurrent {
-  return NO;
+#pragma mark Cancelling
+- (void)cancel {}
+
+@end
+
+#pragma mark -
+@implementation NgEventCancelablePromise
+
+- (void)cancel {
+  
+  __strong id strongDelegate = self.delegate;
+  if (!strongDelegate) return;
+  
+  if ([strongDelegate respondsToSelector:@selector(cancel)]) {
+    [strongDelegate cancel];
+  }
 }
 @end

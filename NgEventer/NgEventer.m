@@ -248,14 +248,29 @@ typedef NS_ENUM(int32_t, NgEventerObserverQueue) {
 }
 
 #pragma mark NgEventerPerformWithPromise
-- (id<NgEventerEventPromise>)performWithPromise:(NgEventerPerformWithPromiseBlock)block {
+- (id<NgEventerEventPromise>)setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate>(^)(id<NgEventerEventPromiseCallback>))setupBlock {
+  NgEventCancelablePromise * promise = [[NgEventCancelablePromise alloc] initWithEventer:self];
+  id<NgEventerEventPromiseCancelDelegate> cancelDelegate = setupBlock(promise);
+  promise.delegate = cancelDelegate;
+  return promise;
+}
+- (id<NgEventerEventPromise>)performPromisedBlock:(NgEventerPerformWithPromiseBlock)block {
   
-  NgEventPromise * promise = [[NgEventPromise alloc] initWithEventer:self block:block];
+  __block NSOperation * operation = nil;
+  id<NgEventerEventPromise> promise =
+  [self setupPromiseWithCallback:^(id<NgEventerEventPromiseCallback> callback) {
+    operation = [NSBlockOperation blockOperationWithBlock:^{
+      block(callback);
+    }];
+    return operation;
+  }];
+
   dispatch_async(dispatch_get_main_queue(), ^{
-    if (![promise isCancelled]) {
-      [self.promisesOperationQueue addOperation:promise];
+    if (![operation isCancelled]) {
+      [self.promisesOperationQueue addOperation:operation];
     }
   });
+  
   return promise;
 }
 

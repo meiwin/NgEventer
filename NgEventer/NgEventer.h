@@ -10,6 +10,9 @@
 #import "NgEventerProtocols.h"
 #import "NgEvent.h"
 
+#import "NSOperation+NgEventer.h"
+#import "NSURLSessionTask+NgEventer.h"
+
 #pragma mark -
 @interface NgEventer : NSObject
 < NgEventerEventRegistry

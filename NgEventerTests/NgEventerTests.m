@@ -131,7 +131,7 @@
   XCTestExpectation * e1 = [self expectationWithDescription:@"/test1"];
   self.test1Expectation = e1;
   
-  [[eventer performWithPromise:^(id<NgEventerEventPromiseCallback> callback) {
+  [[eventer performPromisedBlock:^(id<NgEventerEventPromiseCallback> callback) {
   
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
       [callback send:@"/test1" data:nil error:nil];
@@ -152,7 +152,7 @@
   XCTestExpectation * e1 = [self expectationWithDescription:@"/test1"];
   self.test1Expectation = e1;
   
-  [[eventer performWithPromise:^(id<NgEventerEventPromiseCallback> callback) {
+  [[eventer performPromisedBlock:^(id<NgEventerEventPromiseCallback> callback) {
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
       [callback send:@"/test1" data:nil error:nil];
@@ -166,13 +166,16 @@
   
   [self waitForExpectationsWithTimeout:.5f handler:nil];
 }
+- (void)testPromise2 {
+  
+}
 - (void)testCancel {
   
   NgEventer * eventer = [[NgEventer alloc] init];
 
   dispatch_semaphore_t sema = dispatch_semaphore_create(0);
   
-  [[[eventer performWithPromise:^(id<NgEventerEventPromiseCallback> callback) {
+  [[[eventer performPromisedBlock:^(id<NgEventerEventPromiseCallback> callback) {
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
       [callback send:@"/test1" data:nil error:nil];

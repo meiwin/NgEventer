@@ -40,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC2227751BCC2A7F00A89BF8 /* NSOperation+NgEventer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSOperation+NgEventer.h"; sourceTree = "<group>"; };
+		DC2227761BCC2ABC00A89BF8 /* NSURLSessionTask+NgEventer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+NgEventer.h"; sourceTree = "<group>"; };
 		DCB2FD5E1BC9768400FC35FB /* libNgEventer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNgEventer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB2FD611BC9768400FC35FB /* NgEventer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NgEventer.h; sourceTree = "<group>"; };
 		DCB2FD631BC9768400FC35FB /* NgEventer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NgEventer.m; sourceTree = "<group>"; };
@@ -107,6 +109,8 @@
 				DCB2FD7E1BCA66F400FC35FB /* NgEventPromise.m */,
 				DCB2FD821BCA9C3800FC35FB /* NSObject+NgEventer.h */,
 				DCB2FD831BCA9C3800FC35FB /* NSObject+NgEventer.m */,
+				DC2227751BCC2A7F00A89BF8 /* NSOperation+NgEventer.h */,
+				DC2227761BCC2ABC00A89BF8 /* NSURLSessionTask+NgEventer.h */,
 			);
 			path = NgEventer;
 			sourceTree = "<group>";
@@ -376,6 +380,7 @@
 				DCB2FD691BC9768400FC35FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCB2FD771BCA508D00FC35FB /* Build configuration list for PBXNativeTarget "NgEventerTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +389,7 @@
 				DCB2FD791BCA508D00FC35FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -51,6 +51,7 @@ typedef void(^NgEventerEventPromiseHandlerBlock)(NSString *, id result, NSError 
 
 - (id<NgEventerEventPromise>)nge_handleInBackground:(NgEventerEventPromiseNgeHandlerBlock)handler;
 - (id<NgEventerEventPromise>)handleInBackground:(NgEventerEventPromiseHandlerBlock)handler;
+
 - (void)cancel;
 @end
 
@@ -59,9 +60,16 @@ typedef void(^NgEventerEventPromiseHandlerBlock)(NSString *, id result, NSError 
 @end
 
 #pragma mark -
+@protocol NgEventerEventPromiseCancelDelegate <NSObject>
+- (void)cancel;
+@end
+
+#pragma mark -
 typedef void(^NgEventerPerformWithPromiseBlock)(id<NgEventerEventPromiseCallback> callback);
+
 @protocol NgEventerPerformWithPromise <NSObject>
-- (id<NgEventerEventPromise>)performWithPromise:(NgEventerPerformWithPromiseBlock)block;
+- (id<NgEventerEventPromise>)performPromisedBlock:(NgEventerPerformWithPromiseBlock)block;
+- (id<NgEventerEventPromise>)setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate>(^)(id<NgEventerEventPromiseCallback>))setupBlock;
 @end
 
 #endif /* NgEventerProtocols_h */
