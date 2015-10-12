@@ -35,5 +35,8 @@ static void * NgEventer_NSObject_EventerKey = &NgEventer_NSObject_EventerKey;
 - (id<NgEventerEventPromise>)nge_performPromisedBlock:(NgEventerPerformWithPromiseBlock)block {
   return [[self nge_eventer] performPromisedBlock:block];
 }
+- (id<NgEventerEventPromise>)nge_setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate> (^)(id<NgEventerEventPromiseCallback>))setupBlock {
+  return [[self nge_eventer] setupPromiseWithCallback:setupBlock];
+}
 
 @end

@@ -166,8 +166,32 @@
   
   [self waitForExpectationsWithTimeout:.5f handler:nil];
 }
-- (void)testPromise2 {
+- (void)testPromiseWithNSURLSession {
+
+  NgEventer * eventer = [[NgEventer alloc] init];
   
+  XCTestExpectation * e1 = [self expectationWithDescription:@"/test1"];
+  self.test1Expectation = e1;
+  
+  NSURLSession * session = [NSURLSession sharedSession];
+  __block NSURLSessionDataTask * task = nil;
+  
+  [[eventer setupPromiseWithCallback:^id<NgEventerEventPromiseCancelDelegate>(id<NgEventerEventPromiseCallback> callback) {
+    
+    task = [session dataTaskWithURL:[NSURL URLWithString:@"https://www.google.com"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+      [callback send:@"/test1" data:data error:error];
+    }];
+    return task;
+    
+  }] handle:^(NSString * name, id result, NSError * error) {
+    
+    [self.test1Expectation fulfill];
+    
+  }];
+
+  [task resume];
+  [self waitForExpectationsWithTimeout:5.f handler:nil];
+
 }
 - (void)testCancel {
   
