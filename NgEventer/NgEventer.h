@@ -17,7 +17,7 @@
 @interface NgEventer : NSObject
 < NgEventerEventRegistry
 , NgEventerEventDelivery
-, NgEventerPerformWithPromise >
+, NgEventerPerformPromise >
 
 @property (nonatomic, strong) dispatch_queue_t  backgroundQueue;
 @end

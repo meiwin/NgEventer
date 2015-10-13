@@ -32,7 +32,7 @@ static void * NgEventer_NSObject_EventerKey = &NgEventer_NSObject_EventerKey;
 - (void)nge_send:(NSString *)eventName data:(id)data error:(NSError *)error {
   [[self nge_eventer] send:eventName data:data error:error];
 }
-- (id<NgEventerEventPromise>)nge_performPromisedBlock:(NgEventerPerformWithPromiseBlock)block {
+- (id<NgEventerEventPromise>)nge_performPromisedBlock:(NgEventerPromisedBlock)block {
   return [[self nge_eventer] performPromisedBlock:block];
 }
 - (id<NgEventerEventPromise>)nge_setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate> (^)(id<NgEventerEventPromiseCallback>))setupBlock {

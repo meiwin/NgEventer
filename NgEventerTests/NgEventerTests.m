@@ -207,7 +207,7 @@
     
   }] handle:^(NSString * name, id data, NSError * error) {
     
-    XCTAssertFalse(@"Should not be called as performWithPromise was cancelled.");
+    XCTAssertFalse(@"Should not be called as performPromisedBlock was cancelled.");
     dispatch_semaphore_signal(sema);
     
   }] cancel];

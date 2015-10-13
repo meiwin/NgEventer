@@ -247,14 +247,14 @@ typedef NS_ENUM(int32_t, NgEventerObserverQueue) {
   [registry send:event eventer:self backgroundQueue:self.backgroundQueue];
 }
 
-#pragma mark NgEventerPerformWithPromise
+#pragma mark NgEventerPerformPromise
 - (id<NgEventerEventPromise>)setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate>(^)(id<NgEventerEventPromiseCallback>))setupBlock {
   NgEventCancelablePromise * promise = [[NgEventCancelablePromise alloc] initWithEventer:self];
   id<NgEventerEventPromiseCancelDelegate> cancelDelegate = setupBlock(promise);
   promise.delegate = cancelDelegate;
   return promise;
 }
-- (id<NgEventerEventPromise>)performPromisedBlock:(NgEventerPerformWithPromiseBlock)block {
+- (id<NgEventerEventPromise>)performPromisedBlock:(NgEventerPromisedBlock)block {
   
   __block NSOperation * operation = nil;
   id<NgEventerEventPromise> promise =

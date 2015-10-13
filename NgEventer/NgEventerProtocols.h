@@ -65,10 +65,10 @@ typedef void(^NgEventerEventPromiseHandlerBlock)(NSString *, id result, NSError 
 @end
 
 #pragma mark -
-typedef void(^NgEventerPerformWithPromiseBlock)(id<NgEventerEventPromiseCallback> callback);
+typedef void(^NgEventerPromisedBlock)(id<NgEventerEventPromiseCallback> callback);
 
-@protocol NgEventerPerformWithPromise <NSObject>
-- (id<NgEventerEventPromise>)performPromisedBlock:(NgEventerPerformWithPromiseBlock)block;
+@protocol NgEventerPerformPromise <NSObject>
+- (id<NgEventerEventPromise>)performPromisedBlock:(NgEventerPromisedBlock)block;
 - (id<NgEventerEventPromise>)setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate>(^)(id<NgEventerEventPromiseCallback>))setupBlock;
 @end
 

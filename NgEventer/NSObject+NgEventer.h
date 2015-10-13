@@ -14,7 +14,7 @@
 - (id<NgEventerObserverRegistry>)nge_eventNamed:(NSString *)name;
 - (void)nge_send:(NSString *)eventName data:(id)data error:(NSError *)error;
 - (void)nge_send:(NgEvent *)event;
-- (id<NgEventerEventPromise>)nge_performPromisedBlock:(NgEventerPerformWithPromiseBlock)block;
+- (id<NgEventerEventPromise>)nge_performPromisedBlock:(NgEventerPromisedBlock)block;
 - (id<NgEventerEventPromise>)nge_setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate>(^)(id<NgEventerEventPromiseCallback>))setupBlock;
 
 @end
