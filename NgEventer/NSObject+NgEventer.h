@@ -12,6 +12,7 @@
 @interface NSObject (NgEventer)
 
 - (id<NgEventerObserverRegistry>)nge_eventNamed:(NSString *)name;
+- (void)nge_removeObserversOwnedBy:(id)observer;
 - (void)nge_send:(NSString *)eventName data:(id)data error:(NSError *)error;
 - (void)nge_send:(NgEvent *)event;
 - (id<NgEventerEventPromise>)nge_performPromisedBlock:(NgEventerPromisedBlock)block;

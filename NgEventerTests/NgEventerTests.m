@@ -124,6 +124,22 @@
 
   dispatch_semaphore_wait(sema, dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC));
 }
+- (void)testRemoveObserversOwnedBy {
+  
+  NgEventer * eventer = [[NgEventer alloc] init];
+  
+  dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+  
+  [[eventer eventNamed:@"/test1"] addObserver:self];
+  [[eventer eventNamed:@"/test1"] addObserver:self action:@selector(shouldNotTest1:)];
+  [eventer removeObserversOwnedBy:self];
+  
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    [eventer send:@"/test1" data:nil error:nil];
+  });
+  
+  dispatch_semaphore_wait(sema, dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC));
+}
 - (void)testPromise {
 
   NgEventer * eventer = [[NgEventer alloc] init];

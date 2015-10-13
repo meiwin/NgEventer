@@ -227,6 +227,13 @@ typedef NS_ENUM(int32_t, NgEventerObserverQueue) {
   [self.registryLock unlock];
   return registry;
 }
+- (void)removeObserversOwnedBy:(id)observer {
+
+  NSParameterAssert(observer);
+  for (id<NgEventerObserverRegistry> registry in [self.registries allValues]) {
+    [registry removeObserver:observer];
+  }
+}
 
 #pragma mark NgEventerEventDelivery
 - (void)send:(NSString *)eventName data:(id)data error:(NSError *)error {

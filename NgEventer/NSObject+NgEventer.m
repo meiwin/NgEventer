@@ -26,6 +26,9 @@ static void * NgEventer_NSObject_EventerKey = &NgEventer_NSObject_EventerKey;
 - (id<NgEventerObserverRegistry>)nge_eventNamed:(NSString *)name {
   return [[self nge_eventer] eventNamed:name];
 }
+- (void)nge_removeObserversOwnedBy:(id)observer {
+  [[self nge_eventer] removeObserversOwnedBy:observer];
+}
 - (void)nge_send:(NgEvent *)event {
   [[self nge_eventer] send:event];
 }

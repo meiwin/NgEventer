@@ -26,6 +26,7 @@
 @protocol NgEventerEventRegistry <NSObject>
 @required
 - (id<NgEventerObserverRegistry>)eventNamed:(NSString *)name;
+- (void)removeObserversOwnedBy:(id)observer;
 @end
 
 #pragma mark -
@@ -38,8 +39,8 @@
 
 #pragma mark -
 @class NgEvent;
-typedef void(^NgEventerEventPromiseNgeHandlerBlock)(NgEvent *);
-typedef void(^NgEventerEventPromiseHandlerBlock)(NSString *, id result, NSError *);
+typedef void(^NgEventerEventPromiseNgeHandlerBlock)(NgEvent * event);
+typedef void(^NgEventerEventPromiseHandlerBlock)(NSString * name, id result, NSError * error);
 @protocol NgEventerEventPromise <NSObject>
 @required
 
@@ -65,11 +66,11 @@ typedef void(^NgEventerEventPromiseHandlerBlock)(NSString *, id result, NSError 
 @end
 
 #pragma mark -
-typedef void(^NgEventerPromisedBlock)(id<NgEventerEventPromiseCallback> callback);
+typedef void(^NgEventerPromisedBlock)(id<NgEventerEventPromiseCallback> cb);
 
 @protocol NgEventerPerformPromise <NSObject>
 - (id<NgEventerEventPromise>)performPromisedBlock:(NgEventerPromisedBlock)block;
-- (id<NgEventerEventPromise>)setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate>(^)(id<NgEventerEventPromiseCallback>))setupBlock;
+- (id<NgEventerEventPromise>)setupPromiseWithCallback:(id<NgEventerEventPromiseCancelDelegate>(^)(id<NgEventerEventPromiseCallback> cb))setupBlock;
 @end
 
 #endif /* NgEventerProtocols_h */
