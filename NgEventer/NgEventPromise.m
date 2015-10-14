@@ -98,7 +98,6 @@ typedef NS_ENUM(int32_t, NgEventPromiseQueue) {
 #pragma mark NgEventerEventPromiseCallback
 - (void)send:(NSString *)eventName data:(id)data error:(NSError *)error {
 
-  NSParameterAssert(eventName);
   NgEvent * event = [[NgEvent alloc] init];
   event.name = eventName;
   event.data = data;
@@ -149,7 +148,9 @@ typedef NS_ENUM(int32_t, NgEventPromiseQueue) {
     [self _nge_send:dic event:event];
   }];
 
-  [self.eventer send:event];
+  if (event.name && event.name.length > 0) {
+    [self.eventer send:event];
+  }
 }
 
 #pragma mark Cancelling
