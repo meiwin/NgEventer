@@ -15,4 +15,8 @@
 @end
 
 @implementation NgEvent
+- (NSString *)description {
+  return [NSString stringWithFormat:@"(NgEvent) { name = %@, error = %@, data = %@}",
+          self.name, self.error, self.data];
+}
 @end
