@@ -10,10 +10,10 @@
 		DCB2FD621BC9768400FC35FB /* NgEventer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCB2FD611BC9768400FC35FB /* NgEventer.h */; };
 		DCB2FD641BC9768400FC35FB /* NgEventer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD631BC9768400FC35FB /* NgEventer.m */; };
 		DCB2FD721BCA508D00FC35FB /* NgEventerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD711BCA508D00FC35FB /* NgEventerTests.m */; };
-		DCB2FD741BCA508D00FC35FB /* libNgEventer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB2FD5E1BC9768400FC35FB /* libNgEventer.a */; settings = {ASSET_TAGS = (); }; };
-		DCB2FD7C1BCA5A0D00FC35FB /* NgEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD7B1BCA5A0D00FC35FB /* NgEvent.m */; settings = {ASSET_TAGS = (); }; };
-		DCB2FD7F1BCA66F400FC35FB /* NgEventPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD7E1BCA66F400FC35FB /* NgEventPromise.m */; settings = {ASSET_TAGS = (); }; };
-		DCB2FD841BCA9C3800FC35FB /* NSObject+NgEventer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD831BCA9C3800FC35FB /* NSObject+NgEventer.m */; settings = {ASSET_TAGS = (); }; };
+		DCB2FD741BCA508D00FC35FB /* libNgEventer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB2FD5E1BC9768400FC35FB /* libNgEventer.a */; };
+		DCB2FD7C1BCA5A0D00FC35FB /* NgEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD7B1BCA5A0D00FC35FB /* NgEvent.m */; };
+		DCB2FD7F1BCA66F400FC35FB /* NgEventPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD7E1BCA66F400FC35FB /* NgEventPromise.m */; };
+		DCB2FD841BCA9C3800FC35FB /* NSObject+NgEventer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB2FD831BCA9C3800FC35FB /* NSObject+NgEventer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -316,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

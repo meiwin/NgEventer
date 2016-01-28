@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DCB2FD6E1BCA508D00FC35FB"
+               BuildableName = "NgEventerTests.xctest"
+               BlueprintName = "NgEventerTests"
+               ReferencedContainer = "container:NgEventer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DCB2FD5D1BC9768400FC35FB"
+            BuildableName = "libNgEventer.a"
+            BlueprintName = "NgEventer"
+            ReferencedContainer = "container:NgEventer.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
